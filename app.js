@@ -1,9 +1,17 @@
 const APIURL =
     "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=04c35731a5ee918f014970082a0088b1&page=1";
+// Api for most popular movie list page.
 const IMGPATH = "https://image.tmdb.org/t/p/w1280";
 const SEARCHAPI =
     "https://api.themoviedb.org/3/search/movie?&api_key=04c35731a5ee918f014970082a0088b1&query=";
+//Api that provide you the movie page you searched for.
+
 const moiveBox = document.querySelector("#movie-box")
+// here we select the element id by using queryselector i.e, where we show our fetched data. 
+
+//here, we use async function, because we we have to fetch data from a third party api.
+//here, json function is used to show fetched data that is stored in variable response in json format.
+
 const getMovies = async (url) => {
     const response = await fetch(url)
     const data = await response.json()
@@ -11,6 +19,8 @@ const getMovies = async (url) => {
 }
 getMovies(APIURL);
 
+//It is the init call or initial call while page get loaded for the first time i.e, it will show the popular movie page. 
+// showMovies(data) , here we pass the data that fetched from api to showmovies fuction and this take the data show the result in the form of cards in the ui.
 
 const showMovies = (data) => {
     moiveBox.innerHTML = "";
